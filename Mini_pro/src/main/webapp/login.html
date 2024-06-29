@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            margin-top: 250px;
+            background-color: bisque;
+        }
+        h1{
+            padding-left: 50px;
+        }
+        input{
+            width:200px;
+            height:30px;
+            font-size:17px;
+        }
+        #button{
+            margin-left:70px;
+        }
+        input:hover{
+            background-color:darkgray;
+            transition-duration:1s;
+            transition-delay:0.5s;
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login Page</h1>
+    <form action="Servlet" method="post">
+        <div id="input">
+            <label>Userame:</label><input type="text" name="id" required><br><br>
+            <label>Password:</label><input type="password" name="pwd" required><br><br>
+            <input type="submit" value="CLICK" id="button">
+        </div>
+    </form>
+</body>
+</html>
