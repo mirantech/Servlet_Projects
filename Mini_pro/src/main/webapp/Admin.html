@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Login.css">
+    <title>Login</title>
+    <style>
+        .error-message-container {
+            display: none;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+           margin-top:70px;
+           margin-left:120px;
+            border-radius: 5px;
+            text-align: center;
+            animation: fadeInOut 2s ease-in-out forwards;
+            position: fixed;
+            width: 20%;
+            z-index: 1000;
+        }
+
+        @keyframes fadeInOut {
+            0%, 90% { opacity: 1; }
+            100% { opacity: 0; display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-message-container" id="error-message-container"></div>
+        <div class="signin-signup">
+            <form action="Admin_Login" class="sign-in-form" method="post"  target="_blank">
+                <input name="purpose" placeholder="Text" type="hidden" value="L"/>
+                <h2 class="title">Sign in Admin</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="username" name="id" required>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="password" name="pwd" required>
+                </div>
+                <input type="submit" value="Login" class="btn">
+                <p class="social-text">Or Sign in with social platform</p>
+                <p class="account-text">Don't have an account?<a href="#" id="sign-up-btn2">Sign up</a></p>
+            </form>
+
+            <form action="Servlet" class="sign-up-form" method="post" target="_blank">
+                <h2 class="title">Sign up Student</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="username" name="id" required>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="password" name="pwd" required>
+                </div>
+                <a href="#" class="forget-password">Forget Password?</a>
+                <input type="submit" value="Sign up" class="btn">
+                <p class="social-text">Or Sign in with social platform</p>
+                <p class="account-text">Already have an account?<a href="#" id="sign-in-btn2">Sign in</a></p>
+            </form>
+        </div>
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Member of Brand</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, quis ex id laborum repudiandae magni.</p>
+                    <button class="btn" id="sign-in-btn">Sign in</button>
+                </div>
+                <img src="signin.svg" alt="" class="image">
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>New to Brand</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, quis ex id laborum repudiandae magni.</p>
+                    <button class="btn" id="sign-up-btn">Sign in</button>
+                </div>
+                <img src="signup.svg" alt="" class="image">
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/9e5ba2e3f5.js" crossorigin="anonymous"></script>
+    <script src="Login_Js.js"></script>
+ 	<script>
+        	window.addEventListener('load', function() {
+            var errorMessageContainer = document.getElementById('error-message-container');
+            var urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('error')) {
+                errorMessageContainer.style.display = 'block';
+                errorMessageContainer.innerHTML = 'Wrong username or password';
+            }
+            else if (urlParams.has('sessionExpired')) {
+            	errorMessageContainer.style.display = 'block';
+                errorMessageContainer.innerHTML = 'Session expired. Please log in again.';
+            }
+        });
+    </script>
+</body>
+</html>
