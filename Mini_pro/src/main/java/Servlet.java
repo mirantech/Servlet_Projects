@@ -20,7 +20,10 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet("/Servlet")
 public class Servlet extends HttpServlet {
-    public void doPost(HttpServletRequest rq, HttpServletResponse res) throws ServletException, IOException {
+    public void service(HttpServletRequest rq, HttpServletResponse res) throws ServletException, IOException {
+        String purpose = rq.getParameter("purpose");
+        
+        if(purpose.equals("l")) {
         String u_name = rq.getParameter("id");
         String pwd = rq.getParameter("pwd");
 
@@ -65,4 +68,20 @@ public class Servlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+        if(purpose.equals("f")) {
+        	
+      	  try {
+      		Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "root");
+      		String u_name = rq.getParameter("id");
+      		String pwd = rq.getParameter("pwd");
+      		  String str="UPDATE student SET password=? WHERE Roll_No = ?";
+				PreparedStatement ps = cn.prepareStatement(str);
+				ps.setString(1, pwd);
+				ps.setString(2, u_name);
+				ps.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    }}
 }

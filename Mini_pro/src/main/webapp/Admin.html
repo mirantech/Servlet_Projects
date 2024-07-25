@@ -53,13 +53,16 @@
                 <h2 class="title">Sign up Student</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
+                    <input type="hidden"  name="purpose" value="l">
                     <input type="text" placeholder="username" name="id" required>
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
                     <input type="password" placeholder="password" name="pwd" required>
                 </div>
-                <a href="#" class="forget-password">Forget Password?</a>
+                <!--  <a href="Servlet?purpose=f">Forget Password?</a>  only for method ("service")-->
+                <a href="Forget.html" class="forget-password">Forget Password?</a>
+                
                 <input type="submit" value="Sign up" class="btn">
                 <p class="social-text">Or Sign in with social platform</p>
                 <p class="account-text">Already have an account?<a href="#" id="sign-in-btn2">Sign in</a></p>

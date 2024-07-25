@@ -28,7 +28,7 @@ public class Admin_Login extends HttpServlet {
 		  if (id.equals("VSBEC") && pwd.equals("vsb@123")) {
               HttpSession session = rq.getSession();
               session.setMaxInactiveInterval(60*10); // Set session timeout to 10 seconds
-              RequestDispatcher res = rq.getRequestDispatcher("MarksEnter.jsp");
+              RequestDispatcher res = rq.getRequestDispatcher("MarksEnter.jsp	");
               res.forward(rq, rs);
           } else {
               rs.sendRedirect("Admin.html?error=true");
